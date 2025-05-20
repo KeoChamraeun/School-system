@@ -4,7 +4,7 @@
     </x-slot>
 
     <x-slot name="description">
-        {{ __('Update your account\'s profile information and email address.') }}
+        {{ __('Update your accounts profile information and email address.') }}
     </x-slot>
 
     <x-slot name="form">
@@ -41,7 +41,7 @@
                     <x-button class="mt-2 w-6/12 place-self-center text-sm md:text-base" type="button" x-on:click.prevent="$refs.photo.click()">
                         {{ __('New Photo') }}
                     </x-button>
-                    
+
                     @if ($this->user->profile_photo_path)
                         <x-button type="button" class="mt-2 bg-red-600 w-6/12 place-self-center" wire:click="deleteProfilePhoto">
                             {{ __('Remove Photo') }}
@@ -57,7 +57,7 @@
             <x-input label="Name" id="name" name="name" placeholder="Your Name In Order First Name, Last Name, Other names " group-class="col-span-12" wire:model.live="state.name"/>
             <x-input label="Email" id="email" name="email" placeholder="Your Email Address" group-class="col-span-12" wire:model.live="state.email"/>
             <x-input type="date" id="birthday" name="birthday" placeholder="Your birthday..." label="Birthday *" group-class="col-span-6" wire:model.live="state.birthday"/>
-    
+
             <x-select id="gender" name="gender" label="Gender *" group-class="col-span-6" wire:model.live="state.gender">
                 @php ($genders = ['Male', 'Female'])
                 @foreach ($genders as $gender)
@@ -68,7 +68,7 @@
             <div class="col-span-12">
                 @livewire('nationality-and-state-input-fields', ['nationality' => ucfirst($this->user->nationality), 'state' => ucfirst($this->user->state)])
             </div>
-            
+
             {{-- listen for change in nationality and state event and set it as the value of their respective state variable. The values of $state is passed on form submit. therefore we set the selected nationality using the browser event fired  --}}
             <script>
                 window.addEventListener('nationality-updated',event => {
